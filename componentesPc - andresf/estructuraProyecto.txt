@@ -1,0 +1,8 @@
+A continuación les relaciono la estructura que tendrá el proyecto final.
+
+    Deberá ser una página web construida en HTML usando alguno de los frameworks o librerías frontend que vimos en clase o la de su preferencia (Bootstrap, Tailwind, etc).
+    El sitio deberá contener una página inicial en donde se visualice por medio de tarjetas (cards) de bootstrap los registros que están almacenados en la API.
+    Una segunda página en la cual encontraremos una tabla con todos los registros de la API y además los botones necesarios para ver, editar, eliminar y crear nuevos registros.
+    Una tercera página en la que duplicaremos la información de la hoja de vida que creamos en talleres anteriores pero haciendo uso de bootstrap.
+
+El resto de pormenores y requerimientos del proyecto los hablaremos en clase.

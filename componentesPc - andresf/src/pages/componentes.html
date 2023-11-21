@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <title>COMPONENTES_PC</title>
+</head>
+<body class="bg-info-subtle">
+    <header>
+        <!-------------------------------barra de navegacion-------------------------------------->
+        <nav class="navbar navbar-expand-lg bg-info">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#" imag="https://img.freepik.com/vector-gratis/instagram-nuevo-icono_1057-2227.jpg?w=740&t=st=1698794184~exp=1698794784~hmac=77e795ea5c5ef2c39d15751ff723e9e6bc414fcb71f0b6b2c9391f450d2b8df3">AF HARDWARE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../../index.html">CARDS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">REGISTROS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/hojaDeVida.html">HOJA DE VIDA</a>
+                </li>
+                </ul>
+                <span class="navbar-text">
+                COMPONENTES ORIGINALES AL MEJOR PRECIO
+                </span>
+            </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--------------------------TABLA CON INFO DE COMPONENTES-------------------------------------->
+    <div class="container-fluid py-4" >
+        <table class="table table-dark table-striped table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TIPO_COMPONENTE</th>
+                    <th>MARCA</th>
+                    <th>REFERENCIA</th>
+                    <th>PRECIO</th>
+                    <th>DISPONIBLE</th>
+                    <th>ELIMINAR</th>
+                    <th>EDITAR</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!--------------------------------boton lanzador de modal crear componente----------------------->
+    <div class="ps-3">
+                <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#crearModal" id="botonCrearComponente">
+            CREAR COMPONENTE
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="crearModal" tabindex="-1" aria-labelledby="crearModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="crearModalLabel">CREAR COMPONENTE</h1>
+                    </div>
+
+                    <div class="modal-body">
+                        <select class="form-select mb-3" aria-label="Default select example" name="tipoComponente" id="tipoComponente">
+                            <option selected>SELECCIONE TIPO DE COMPONENTE</option>
+                            <option value="tarjetaGrafica">tarjeta grafica</option>
+                            <option value="targetaRed">targeta de red</option>
+                            <option value="tarjetaMadre">tarjeta madre</option>
+                            <option value="memoriaRam">memoria ram</option>
+                            <option value="procesador">procesador</option>
+                            <option value="discoDuro">disco duro</option>
+                            <option value="teclado">teclado</option>
+                            <option value="mouse">mouse</option>
+                            <option value="monitor">monitor</option>
+                        </select>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">MARCA</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="marca" id="marca"
+                              aria-describedby="inputGroup-sizing-default">
+                        </div>
+    
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">REFERENCIA</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="referencia" id="referencia"
+                              aria-describedby="inputGroup-sizing-default">
+                        </div>
+    
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">PRECIO</span>
+                            <input type="number" class="form-control" min="0" name="precio" id="precio"
+                              aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">URL IMAGEN</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="url" id="url"
+                              aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="disponible" id="disponible">
+                            <label class="form-check-label" for="disponibilidadCheckbox">
+                              DISPONIBLE
+                            </label>
+                          </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                        <button type="button" class="btn btn-primary" id="guardarComponente">GUARDAR</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-------------------------------------------modal eliminar componente---------------------------------->
+  <!-- Modal -->
+  <div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="eliminarModalLabel">ELIMINAR COMPONENTE</h1>
+        </div>
+        <div class="modal-body">
+            <p class="text-center">ESTA SEGURO DE ELIMINAR EL SIGUIENTE COMPONENTE</p>
+            <p>id: <span id="eliminarComponenteSpanId"></span></p>
+            <p>tipo Componente: <span id="eliminarComponenteSpanTipo"></span></p>
+            <p>marca: <span id="eliminarComponenteSpanMarca"></span></p>
+            <p>referencia: <span id="eliminarComponenteSpanReferencia"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+          <button type="button" class="btn btn-primary" id="botonSiEliminar" data-bs-dismiss="modal" >SI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!---------------------------------------modal editar componente------------------------------------------------>
+  <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editarModalLabel">EDITAR COMPONENTE</h1>
+            </div>
+
+            <div class="modal-body">
+                <select class="form-select mb-3" aria-label="Default select example" name="tipoComponente2" id="tipoComponente2">
+                    <option selected>SELECCIONE TIPO DE COMPONENTE</option>
+                    <option value="tarjetaGrafica">tarjeta grafica</option>
+                    <option value="targetaRed">targeta de red</option>
+                    <option value="tarjetaMadre">tarjeta madre</option>
+                    <option value="memoriaRam">memoria ram</option>
+                    <option value="procesador">procesador</option>
+                    <option value="discoDuro">disco duro</option>
+                    <option value="teclado">teclado</option>
+                    <option value="mouse">mouse</option>
+                    <option value="monitor">monitor</option>
+                </select>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">MARCA</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" name="marca2" id="marca2"
+                      aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">REFERENCIA</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" name="referencia2" id="referencia2"
+                      aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">PRECIO</span>
+                    <input type="number" class="form-control" min="0" name="precio2" id="precio2"
+                      aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">URL IMAGEN</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" name="url2" id="url2"
+                      aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="disponible2" id="disponible2">
+                    <label class="form-check-label" for="disponibilidadCheckbox">
+                      DISPONIBLE
+                    </label>
+                  </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                <button type="button" class="btn btn-primary" id="botonActualizar">ACTUALIZAR</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+      <script src=" 	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+      <script src="../js/componentes.js"></script>
+</body>
+</html>
